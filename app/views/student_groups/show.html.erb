@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @student_group.year %>
+</p>
+
+<p>
+  <strong>Month:</strong>
+  <%= @student_group.month %>
+</p>
+
+<p>
+  <strong>Course name:</strong>
+  <%= @student_group.course_name %>
+</p>
+
+<%= link_to 'Edit', edit_student_group_path(@student_group) %> |
+<%= link_to 'Back', student_groups_path %>
