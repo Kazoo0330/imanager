@@ -1,6 +1,14 @@
-ActiveRecord::Schema.define(version: 20180506092329) do
+ActiveRecord::Schema.define(version: 20180507131256) do
 
   enable_extension "plpgsql"
+
+  create_table "appointments", force: :cascade do |t|
+    t.text "comment"
+    t.integer "user_id"
+    t.integer "event_day_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "event_days", force: :cascade do |t|
     t.time "start_time"
@@ -8,6 +16,7 @@ ActiveRecord::Schema.define(version: 20180506092329) do
     t.date "day"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "event_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -45,6 +54,7 @@ ActiveRecord::Schema.define(version: 20180506092329) do
     t.datetime "updated_at", null: false
     t.string "name", default: "", null: false
     t.boolean "admin", default: false
+    t.integer "student_group_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
