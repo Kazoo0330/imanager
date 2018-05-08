@@ -1,4 +1,4 @@
-ActiveRecord::Schema.define(version: 20180507131256) do
+ActiveRecord::Schema.define(version: 20180508131424) do
 
   enable_extension "plpgsql"
 
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20180507131256) do
     t.string "course_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

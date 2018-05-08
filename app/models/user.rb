@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable 
 
-#  has_one :appointment
-#  has_many :events
+  belongs_to :student_group
+  has_one :appointment
+  has_many :events
 end
