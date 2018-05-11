@@ -28,6 +28,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+	@event.user = current_user
 
     respond_to do |format|
       if @event.save
@@ -72,11 +73,11 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:description)
+      params.require(:event).permit(:title, :description)
     end
 
 	def admin_exclusive
-	  if !current_user.admin
+	  unless current_user.admin
         redirect_to events_path
 	  end
 	end
