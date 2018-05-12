@@ -65,6 +65,19 @@ class EventsController < ApplicationController
     end
   end
 
+  def events
+    @event = Event.all
+	# render :json => @event
+	respond_to do |format|
+	  format.json {
+	    render json:
+		@event.to_json(
+		  only: [:title, :start, :end]
+		)
+	  end 
+	end
+  end 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
