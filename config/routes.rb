@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :event_days
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
-  root 'events#index'
+  root 'top#index'
 
   resources :events
   resources :student_groups
