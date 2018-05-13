@@ -82,3 +82,32 @@ div {
 label {
   display: block;
 }
+
+
+
+.jumbotron {
+			background: image-url('/assets/business.jpg') center no-repeat;
+			background-size: cover;
+
+}
+
+
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+
+// .navbar-default {
+//     background-color: #f8f8f8;
+//     border-color: #e7e7e7;
+// }
+
+.navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+}

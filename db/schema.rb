@@ -1,4 +1,4 @@
-ActiveRecord::Schema.define(version: 20180508131424) do
+ActiveRecord::Schema.define(version: 20180513051033) do
 
   enable_extension "plpgsql"
 
@@ -25,6 +25,10 @@ ActiveRecord::Schema.define(version: 20180508131424) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.string "title"
+    t.boolean "disp_flg"
+    t.datetime "start"
+    t.datetime "end"
+    t.boolean "allDay"
   end
 
   create_table "student_groups", force: :cascade do |t|
