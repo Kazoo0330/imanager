@@ -10,7 +10,7 @@
 
 $(document).on('turbolinks:load', function() {
   console.log("It works on each visit!");
- 
+
 $('#calendar').fullCalendar({
 //カレンダーのデフォルト表示とテーマを設定
   defaultView: 'agendaWeek',
@@ -21,7 +21,7 @@ $('#calendar').fullCalendar({
   center: 'title',
   right: 'month,agendaWeek,agendaDay,listMonth'
   },
-  
+
 //  dayClick: function(date, jsEvent, view) {
 //    alert('Click on : ' + date.format());
 //    alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
@@ -53,12 +53,11 @@ $('#calendar').fullCalendar({
 	$('#calendar').fullCalendar('unselect');
   },
 
-  events: '/events.json',
+  events: '/events/events.json',
   editable: true,
-  durationEditable: Boolean, default: true,
-  weekNumbers: true,
-  eventLimit: true, // allow "more" link when too many events
-  events: 'https://fullcalendar.io/demo-events.json'
+  // durationEditable: Boolean, default: true,
+  // weekNumbers: true,
+  // eventLimit: true, // allow "more" link when too many events
+  // events: 'https://fullcalendar.io/demo-events.json'
 });
 });
-

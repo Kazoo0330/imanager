@@ -6,10 +6,53 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
+  <header>
+    <div class="container">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#gnavi">
+            <span class="sr-only">Bootstrap</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/posts">iManager</a>
+        </div>
+        <div id="gnavi" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="">top</a></li>
+            <li><a href="">menu1</a></li>
+            <li><a href="">menu2</a></li>
+            <li><a href="">menu3</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
   <body>
-    <% if user_signed_in? %>
+
+    <div class="jumbotron">
+     <div class="container">
+       <h1>iManager</h1>
+       <p>The application makes interviews much easier. You will be able to see your schedule.</p>
+       <button type="button" class="btn btn-primary btn-lg" role="button"><%= link_to 'View Events »', events_path %></button>
+       <button class="btn btn-primary btn-lg" href="#" role="button">Sign up »</button>
+     </div>
+   </div>
+
+
+
+
+
+
+
+
+  <% if user_signed_in? %>
 	  <%= link_to "面談イベントの投稿", events_path %>
 	  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
 	<% else %>

@@ -17,7 +17,11 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new
+    if params[:back]
+      @event = Event.new(event_params)
+	else
+	  @event = Event.new
+	end
   end
 
   # GET /events/1/edit
@@ -28,7 +32,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-	@event.user = current_user
+	@event.user_id = current_user.id
 
     respond_to do |format|
       if @event.save
@@ -65,16 +69,29 @@ class EventsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id])
-    end
+  def events
+    @event = Event.all
+  	# render :json => @event
+  	respond_to do |format|
+      format.json {
+    	  render json:
+    		@event.to_json(
+    		  only: [:title, :start, :end]
+    		)
+    	}
+  	end
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def event_params
-      params.require(:event).permit(:title, :description)
-    end
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_event
+    @event = Event.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def event_params
+    params.require(:event).permit(:title, :description, :user_id)
+  end
 
 	def admin_exclusive
 	  unless current_user.admin

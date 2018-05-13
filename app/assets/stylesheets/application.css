@@ -4,3 +4,10 @@
  *= require_tree .
  *= require_self
  */
+
+
+/*
+.jumbotron {
+			background: image-url('/assets/business.jpg') center no-repeat;
+			background-size: cover;
+}*/
