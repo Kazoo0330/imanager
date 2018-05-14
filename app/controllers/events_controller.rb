@@ -71,15 +71,17 @@ class EventsController < ApplicationController
 
   def events
     @event = Event.all
+	render json: @event.to_json
   	# render :json => @event
-  	respond_to do |format|
-      format.json {
-    	  render json:
-    		@event.to_json(
-    		  only: [:title, :start, :end]
-    		)
-    	}
-  	end
+	#binding.pry
+  #	respond_to do |format|
+  #    format.json {
+  #  	  render json:
+  #  		@event.to_json(
+  #  		  only: [:title, :start, :end]
+  #  		)
+  #  	}
+  #	end
   end
 
   private
@@ -90,7 +92,8 @@ class EventsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
-    params.require(:event).permit(:title, :description, :user_id)
+#  binding.pry
+    params.require(:event).permit(:title, :description, :user_id, :start, :end, )
   end
 
 	def admin_exclusive

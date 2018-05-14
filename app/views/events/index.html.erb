@@ -4,7 +4,7 @@
   <h1>Events</h1>
 <% end %> 
 
-<table>
+<table class="content">
   <thead>
     <tr>
       <th>Description</th>
@@ -17,10 +17,10 @@
     <% @events.each do |event| %>
       <tr>
         <td><%= event.description %></td>
-        <td><%= link_to 'Show', event %></td>
+        <td><button type="button" class="btn btn-primary"><%= link_to 'Show', event %></button></td>
 		<% if current_user.admin %>
-          <td><%= link_to 'Edit', edit_event_path(event) %></td>
-          <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_event_path(event) %></button></td>
+          <td><button type="button" class="btn btn-danger"><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
 		<% end %> 
       </tr>
     <% end %>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Event', new_event_path %>
+<%= link_to 'New Event', new_event_path, class:'btn btn-success' %>
