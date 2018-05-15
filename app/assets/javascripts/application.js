@@ -53,7 +53,7 @@ $('#calendar').fullCalendar({
 			event: {
 				title: title,
 				start: start.format("YYYY-MM-DD HH:mm:ssZ"),
-				end: end.format("YYYY-MM-DD HH:mm:ssZ"),
+				end: end.format("YYYY-MM-DD HH:mm:ssZ")
 			}
 		  },
 		 });
@@ -62,7 +62,7 @@ $('#calendar').fullCalendar({
 	$('#calendar').fullCalendar('unselect');
   },
   events: '/events/events.json',
-
+  timeFormat: 'H(:mm)', // uppercase H for 24-hour clock
   });
 });
 

@@ -70,8 +70,8 @@ class EventsController < ApplicationController
   end
 
   def events
-    @event = Event.all
-	render json: @event.to_json
+    @events = Event.all
+	render json: @events #.to_json
   	# render :json => @event
 	#binding.pry
   #	respond_to do |format|
@@ -82,6 +82,8 @@ class EventsController < ApplicationController
   #  		)
   #  	}
   #	end
+
+#  binding.pry
   end
 
   private
