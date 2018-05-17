@@ -24,10 +24,10 @@
 
   <% if user_signed_in? %>
 	  <%#= link_to "面談イベントの投稿", events_path %>
-	  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+	  <button type="button" class="btn btn-danger"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>
 	<% else %>
-	  <%= link_to "新規登録", new_user_registration_path %>
-	  <%= link_to "ログイン", new_user_session_path %>
+	  <button type="button" class="btn btn-success"><%= link_to "新規登録", new_user_registration_path %></button>
+	  <button type="button" class="btn btn-primary"><%= link_to "ログイン", new_user_session_path %></button>
 	<% end %>
 
 	<% if notice %>

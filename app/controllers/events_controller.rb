@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  before_action :admin_exclusive, only: [:new, :create, :update, :edit, :destroy]
+#  before_action :admin_exclusive, only: [:new, :create, :update, :edit, :destroy]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
 
@@ -35,9 +35,10 @@ class EventsController < ApplicationController
 	@event.user_id = current_user.id
 
     respond_to do |format|
-#      binding.pry
+      binding.pry
       if @event.save
-        format.html { redirect_to controller: 'appointments', action: 'show', id: 2, notice: 'Event was successfully created.' }
+        format.html { redirect_to controller: 'appointments', action: 'show', id: @appointment.id, notice: 'Event was successfully created.' }
+#		format.html { redirect_to "/appointments/#{@appointments.id}" }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -99,9 +100,9 @@ class EventsController < ApplicationController
     params.require(:event).permit(:title, :user_id, :start, :end, :appointment_id)
   end
 
-	def admin_exclusive
-	  unless current_user.admin
-        redirect_to events_path
-	  end
-	end
+#	def admin_exclusive
+#	  unless current_user.admin
+#        redirect_to events_path
+#	  end
+#	end
 end

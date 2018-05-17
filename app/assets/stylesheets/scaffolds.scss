@@ -1,10 +1,15 @@
 body {
-  background-color: #fff;
+//  background-color: #fff;
   color: #333;
   margin: 33px;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+//  background-image: image-url('/assets/Wood.jpg');
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+//  height: 100%;
 }
 
 p, ol, ul, td {

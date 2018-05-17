@@ -8,6 +8,6 @@
 <div id="calendar"></div>
 
 <% if current_user.admin %>
-  <%= link_to 'Edit', edit_appointment_path(@appointment) %> |
+  <button type="button" class="btn btn-info"><%= link_to 'Edit', edit_appointment_path(@appointment) %></button> |
 <% end %>
-<%= link_to 'Back', appointments_path %>
+<button type="button" class="btn btn-info"><%= link_to 'Back', appointments_path %></button>
