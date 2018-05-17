@@ -37,7 +37,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       binding.pry
       if @event.save
-        format.html { redirect_to controller: 'appointments', action: 'show', id: 2, notice: 'Event was successfully created.' }
+        format.html { redirect_to controller: 'appointments', action: 'show', id: @appointment.id, notice: 'Event was successfully created.' }
 #		format.html { redirect_to "/appointments/#{@appointments.id}" }
         format.json { render :show, status: :created, location: @event }
       else

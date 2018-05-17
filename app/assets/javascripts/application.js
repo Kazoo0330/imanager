@@ -54,7 +54,7 @@ $('#calendar').fullCalendar({
 				title: title,
 				start: start.format("YYYY-MM-DD HH:mm:ssZ"),
 				end: end.format("YYYY-MM-DD HH:mm:ssZ"),
-				appointment_id: 2
+//				appointment_id: 2
 			}
 		  },
 		 });
