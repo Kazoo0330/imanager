@@ -1,8 +1,8 @@
-<% if current_user.try(:admin?) %>
+<!-- <%# if current_user.try(:admin?) %>
   <h1>Events_admin</h1>
-<% else %>
+<%# else %>
   <h1>Events</h1>
-<% end %> 
+<%# end %>
 
 <table class="content">
   <thead>
@@ -13,21 +13,21 @@
   </thead>
 
   <tbody>
-  <% if user_signed_in? %>
-    <% @events.each do |event| %>
+  <%# if user_signed_in? %>
+    <%# @events.each do |event| %>
       <tr>
-        <td><%= event.description %></td>
+        <td><%#= event.description %></td>
         <td><button type="button" class="btn btn-primary"><%= link_to 'Show', event %></button></td>
-		<% if current_user.admin %>
-          <td><button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_event_path(event) %></button></td>
-          <td><button type="button" class="btn btn-danger"><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
-		<% end %> 
+		<%# if current_user.admin %>
+          <td><button type="button" class="btn btn-warning"><%#= link_to 'Edit', edit_event_path(event) %></button></td>
+          <td><button type="button" class="btn btn-danger"><%#= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+		<%# end %>
       </tr>
-    <% end %>
-  <% end %>
+    <%# end %>
+  <%# end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Event', new_event_path, class:'btn btn-success' %>
+<%#= link_to 'New Event', new_event_path, class:'btn btn-success' %> -->

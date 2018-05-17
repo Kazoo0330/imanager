@@ -35,8 +35,9 @@ class EventsController < ApplicationController
 	@event.user_id = current_user.id
 
     respond_to do |format|
+#      binding.pry
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to controller: 'appointments', action: 'show', id: 2, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -69,9 +70,9 @@ class EventsController < ApplicationController
     end
   end
 
-  def events
-    @events = Event.all
-	render json: @events #.to_json
+#  def appointments
+#    @events = Event.all
+#	render json: @events #.to_json
   	# render :json => @event
 	#binding.pry
   #	respond_to do |format|
@@ -84,7 +85,7 @@ class EventsController < ApplicationController
   #	end
 
 #  binding.pry
-  end
+#  end
 
   private
   # Use callbacks to share common setup or constraints between actions.
@@ -95,7 +96,7 @@ class EventsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
 #  binding.pry
-    params.require(:event).permit(:title, :description, :user_id, :start, :end, )
+    params.require(:event).permit(:title, :user_id, :start, :end, :appointment_id)
   end
 
 	def admin_exclusive

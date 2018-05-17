@@ -1,17 +1,15 @@
 Rails.application.routes.draw do
 
-  resources :appointments
-  resources :event_days
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root 'top#index'
 
 #  get 'events', to: 'events#show'
 #  カレンダー用の記述
-
-  resources :events do
+  resources :events 
+  resources :appointments do
     collection do
-      get 'events'
+      get 'appointments'
     end
   end
   resources :student_groups

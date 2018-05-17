@@ -1,19 +1,13 @@
-<p id="notice"><%= notice %></p>
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
-<p>
-  <strong>Comment:</strong>
-  <%= @appointment.comment %>
+<p class="appointment_description">
+  <strong>Description:</strong>
+  <%= @appointment.description %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @appointment.user_id %>
-</p>
+<div id="calendar"></div>
 
-<p>
-  <strong>Event day:</strong>
-  <%= @appointment.event_day_id %>
-</p>
-
-<%= link_to 'Edit', edit_appointment_path(@appointment) %> |
+<% if current_user.admin %>
+  <%= link_to 'Edit', edit_appointment_path(@appointment) %> |
+<% end %>
 <%= link_to 'Back', appointments_path %>
