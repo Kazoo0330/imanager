@@ -2,10 +2,10 @@
 
 <p>
   <strong>Description:</strong>
-  <%= @event.description %>
+  <%#= @event.description %>
 </p>
 
-<div id="calendar"></div>
+<!-- <div id="calendar"></div> -->
 
 <% if current_user.admin %>
   <%= link_to 'Edit', edit_event_path(@event) %> |

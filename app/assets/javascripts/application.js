@@ -53,7 +53,8 @@ $('#calendar').fullCalendar({
 			event: {
 				title: title,
 				start: start.format("YYYY-MM-DD HH:mm:ssZ"),
-				end: end.format("YYYY-MM-DD HH:mm:ssZ")
+				end: end.format("YYYY-MM-DD HH:mm:ssZ"),
+				appointment_id: 2
 			}
 		  },
 		 });
@@ -61,7 +62,7 @@ $('#calendar').fullCalendar({
 	}
 	$('#calendar').fullCalendar('unselect');
   },
-  events: '/events/events.json',
+  events: '/appointments/appointments.json',
   timeFormat: 'H(:mm)', // uppercase H for 24-hour clock
   });
 });

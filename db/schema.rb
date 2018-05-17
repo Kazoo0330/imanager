@@ -1,34 +1,25 @@
-ActiveRecord::Schema.define(version: 20180513051033) do
+ActiveRecord::Schema.define(version: 20180515104127) do
 
   enable_extension "plpgsql"
 
   create_table "appointments", force: :cascade do |t|
-    t.text "comment"
+    t.text "description"
     t.integer "user_id"
-    t.integer "event_day_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "event_days", force: :cascade do |t|
-    t.time "start_time"
-    t.time "end_time"
-    t.date "day"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "event_id"
+    t.string "title"
   end
 
   create_table "events", force: :cascade do |t|
-    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.string "title"
     t.boolean "disp_flg"
     t.datetime "start"
     t.datetime "end"
     t.boolean "allDay"
+    t.integer "appointment_id"
+    t.string "title"
   end
 
   create_table "student_groups", force: :cascade do |t|

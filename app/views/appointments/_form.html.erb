@@ -1,7 +1,7 @@
 <%= form_with(model: appointment, local: true) do |form| %>
   <% if appointment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+      <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this event from being saved:</h2>
 
       <ul>
       <% appointment.errors.full_messages.each do |message| %>
@@ -12,18 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :comment %>
-    <%= form.text_area :comment, id: :appointment_comment %>
+    <%= form.label :title %>
+	<%= form.text_area :title, id: :appointment_title %>
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id, id: :appointment_user_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :event_day_id %>
-    <%= form.number_field :event_day_id, id: :appointment_event_day_id %>
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :appointment_description %>
   </div>
 
   <div class="actions">

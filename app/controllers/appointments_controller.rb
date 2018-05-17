@@ -1,4 +1,6 @@
 class AppointmentsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :admin_exclusive, only: [:new, :create, :update, :edit, :destroy]
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
   # GET /appointments
@@ -10,11 +12,16 @@ class AppointmentsController < ApplicationController
   # GET /appointments/1
   # GET /appointments/1.json
   def show
+    @appointment_id = params[:id]
   end
 
   # GET /appointments/new
   def new
-    @appointment = Appointment.new
+    if params[:back]
+      @appointment = Appointment.new(appointment_params)
+	else
+	  @appointment = Appointment.new
+    end
   end
 
   # GET /appointments/1/edit
@@ -25,6 +32,7 @@ class AppointmentsController < ApplicationController
   # POST /appointments.json
   def create
     @appointment = Appointment.new(appointment_params)
+	@appointment.user_id = current_user.id
 
     respond_to do |format|
       if @appointment.save
@@ -61,14 +69,38 @@ class AppointmentsController < ApplicationController
     end
   end
 
+  def appointments
+    @events = Event.all
+	render json: @events #.to_json
+  	# render :json => @event
+	#binding.pry
+  #	respond_to do |format|
+  #    format.json {
+  #  	  render json:
+  #  		@event.to_json(
+  #  		  only: [:title, :start, :end]
+  #  		)
+  #  	}
+  #	end
+
+#  binding.pry
+  end
+
+
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_appointment
       @appointment = Appointment.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def appointment_params
-      params.require(:appointment).permit(:comment, :user_id, :event_day_id)
+	# binding.pry
+      params.require(:appointment).permit(:description, :title, :user_id, :event_id, :start, :end)
     end
+
+  def admin_exclusive
+    unless current_user.admin
+	  redirect_to apointments_path
+	end
+  end
+
 end
