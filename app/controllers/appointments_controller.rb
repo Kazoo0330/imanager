@@ -12,7 +12,7 @@ class AppointmentsController < ApplicationController
   # GET /appointments/1
   # GET /appointments/1.json
   def show
-    @appointment_id = params[:id]
+#    @appointments = Appointment.all 
   end
 
   # GET /appointments/new
@@ -94,7 +94,7 @@ class AppointmentsController < ApplicationController
 
     def appointment_params
 	# binding.pry
-      params.require(:appointment).permit(:description, :title, :user_id, :event_id, :start, :end)
+      params.require(:appointment).permit(:description, :title, :user_id, :event_id, :start, :end, :appointment_id)
     end
 
   def admin_exclusive
