@@ -30,6 +30,8 @@
 </table>
 
 <br>
-
-<%= link_to 'New Event', new_appointment_path, class:'btn btn-success' %>
+<% if current_user.admin %>
+  <%= link_to 'New Event', new_appointment_path, class:'btn btn-success' %>
+  <%= link_to 'New StudentGroup', new_student_group_path, class:'btn btn-success' %>
+<% end %>
 </body>

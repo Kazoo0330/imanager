@@ -14,7 +14,11 @@ class StudentGroupsController < ApplicationController
 
   # GET /student_groups/new
   def new
-    @student_group = StudentGroup.new
+    if params[:back]
+      @student_group = StudentGroup.new(student_group_params)
+	else 
+	  @student_group = StudentGroup.new
+	end
   end
 
   # GET /student_groups/1/edit
@@ -25,6 +29,7 @@ class StudentGroupsController < ApplicationController
   # POST /student_groups.json
   def create
     @student_group = StudentGroup.new(student_group_params)
+	@student_group.user_id = current_user.id
 
     respond_to do |format|
       if @student_group.save
@@ -69,6 +74,6 @@ class StudentGroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_group_params
-      params.require(:student_group).permit(:year, :month, :course_name)
+      params.require(:student_group).permit(:year, :month, :year_month, :date, :course_name)
     end
 end

@@ -20,7 +20,7 @@
    </div>
   </header>
 
-
+<div class="content">
 
   <% if user_signed_in? %>
 	  <%#= link_to "面談イベントの投稿", events_path %>
@@ -38,6 +38,6 @@
 	<% end %>
 
     <%= yield %>
-
+</div>
   </body>
 </html>
