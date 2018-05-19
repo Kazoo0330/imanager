@@ -10,6 +10,7 @@ class StudentGroupsController < ApplicationController
   # GET /student_groups/1
   # GET /student_groups/1.json
   def show
+    @student_groups = StudentGroup.find(params[:id])
   end
 
   # GET /student_groups/new
@@ -29,7 +30,6 @@ class StudentGroupsController < ApplicationController
   # POST /student_groups.json
   def create
     @student_group = StudentGroup.new(student_group_params)
-	@student_group.user_id = current_user.id
 
     respond_to do |format|
       if @student_group.save

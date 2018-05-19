@@ -8,7 +8,7 @@
 <table class="content">
   <thead>
     <tr>
-      <th>Description</th>
+      <th>EventTitle</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,7 +17,7 @@
   <% if user_signed_in? %>
     <% @appointments.each do |appointment| %>
       <tr>
-        <td><%= appointment.description %></td>
+        <td><%= appointment.title %></td>
         <td><button type="button" class="btn btn-primary"><%= link_to 'Show', appointment %></button></td>
 		<% if current_user.admin %>
           <td><button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_appointment_path(appointment) %></button></td>
