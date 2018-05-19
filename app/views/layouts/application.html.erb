@@ -15,7 +15,11 @@
        <h1>iManager</h1>
        <p>The application makes interviews much easier. You will be able to see your schedule.</p>
        <button type="button" class="btn btn-primary btn-lg" role="button"><%= link_to 'View Events »', appointments_path %></button>
-       <button class="btn btn-primary btn-lg" href="#" role="button">Sign up »</button>
+	   <% if !user_signed_in? %>
+         <button type="button" class="btn btn-primary btn-lg" role="button"><%= link_to 'Sign up »', new_user_registration_path %></button>
+		<% else %>
+		  <button type="button" class="btn btn-danger btn-lg" role="button"><%= link_to 'Logout »', destroy_user_session_path, method: :delete %></button>
+		<% end %>
      </div>
    </div>
   </header>
@@ -24,7 +28,7 @@
 
   <% if user_signed_in? %>
 	  <%#= link_to "面談イベントの投稿", events_path %>
-	  <button type="button" class="btn btn-danger"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>
+	  <!--<button type="button" class="btn btn-danger"><%#= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>-->
 	<% else %>
 	  <button type="button" class="btn btn-success"><%= link_to "新規登録", new_user_registration_path %></button>
 	  <button type="button" class="btn btn-primary"><%= link_to "ログイン", new_user_session_path %></button>

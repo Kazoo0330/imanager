@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Year_Month:</strong>
@@ -10,5 +9,8 @@
   <%= @student_group.course_name %>
 </p>
 
+<% @student_groups.users.each do |user| %>
+  <p><%= user.name %></p>
+<% end %>
 <%= link_to 'Edit', edit_student_group_path(@student_group) %> |
 <%= link_to 'Back', student_groups_path %>
