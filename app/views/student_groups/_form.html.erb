@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :year %>
-    <%= form.date_select :year, id: :student_group_year %>
+    <%= form.date_select :year_month, {:discard_day => true} %>
   </div>
 
   <div class="field">
-    <%= form.label :month %>
-    <%= form.date_select :month, id: :student_group_month %>
+    <%#= form.label :month %>
+    <%#= form.date_select :month, id: :student_group_month %>
   </div>
 
   <div class="field">

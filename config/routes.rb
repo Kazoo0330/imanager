@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
-  root 'top#index'
+  resources :users, :only => [:index]
+root 'top#index'
 
 #  get 'events', to: 'events#show'
 #  カレンダー用の記述
