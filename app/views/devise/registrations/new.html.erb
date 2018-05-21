@@ -10,11 +10,15 @@
   </div>
 
   <div class="field">
-    <%= f.label :受講期 %>
+    <%= f.label :'受講期(下記からご自身の受講期のidを入力してください。)' %>
 	<%= f.number_field :student_group_id %>
-	<%#= f.month_select :student_group %>
+    <% StudentGroup.all.each do |student_groups| %>
+ 	  <p>受講期名:<%= student_groups.course_name %></p>
+	  <p>受講期のid:<%= student_groups.id %></p>
+	  <%#= f.month_select :student_group %>
+	<% end %>
   </div>
-
+  
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
