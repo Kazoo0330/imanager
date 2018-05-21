@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, :only => [:index]
 root 'top#index'
-
+#  post '/users/sign_up' to: 'user#sign_up'
 #  get 'events', to: 'events#show'
 #  カレンダー用の記述
   resources :events 
@@ -14,7 +14,7 @@ root 'top#index'
     end
   end
   resources :student_groups
-  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  end
+#  if Rails.env.development?
+#    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+#  end
 end
