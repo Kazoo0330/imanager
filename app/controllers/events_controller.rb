@@ -4,18 +4,13 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
 
-  # GET /events
-  # GET /events.json
   def index
     @events = Event.all
   end
 
-  # GET /events/1
-  # GET /events/1.json
   def show
   end
 
-  # GET /events/new
   def new
     if params[:back]
       @event = Event.new(event_params)
@@ -24,18 +19,14 @@ class EventsController < ApplicationController
 	end
   end
 
-  # GET /events/1/edit
   def edit
   end
 
-  # POST /events
-  # POST /events.json
   def create
     @event = Event.new(event_params)
 	@event.user_id = current_user.id
 
     respond_to do |format|
-#      binding.pry
       if @event.save
         format.html { redirect_to controller: 'appointments', action: 'show', id: @appointment.id, notice: 'Event was successfully created.' }
 #		format.html { redirect_to "/appointments/#{@appointments.id}" }
@@ -47,8 +38,6 @@ class EventsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /events/1
-  # PATCH/PUT /events/1.json
   def update
     respond_to do |format|
       if @event.update(event_params)
@@ -61,8 +50,6 @@ class EventsController < ApplicationController
     end
   end
 
-  # DELETE /events/1
-  # DELETE /events/1.json
   def destroy
     @event.destroy
     respond_to do |format|
@@ -85,18 +72,14 @@ class EventsController < ApplicationController
   #  	}
   #	end
 
-#  binding.pry
 #  end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
   def set_event
     @event = Event.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
-#  binding.pry
     params.require(:event).permit(:title, :user_id, :start, :end, :appointment_id)
   end
 

@@ -3,19 +3,14 @@ class AppointmentsController < ApplicationController
   before_action :admin_exclusive, only: [:new, :create, :update, :edit, :destroy]
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
-  # GET /appointments
-  # GET /appointments.json
   def index
     @appointments = Appointment.all
   end
 
-  # GET /appointments/1
-  # GET /appointments/1.json
   def show
 #    @appointments = Appointment.all 
   end
 
-  # GET /appointments/new
   def new
     if params[:back]
       @appointment = Appointment.new(appointment_params)
@@ -24,12 +19,9 @@ class AppointmentsController < ApplicationController
     end
   end
 
-  # GET /appointments/1/edit
   def edit
   end
 
-  # POST /appointments
-  # POST /appointments.json
   def create
     @appointment = Appointment.new(appointment_params)
 	@appointment.user_id = current_user.id
@@ -45,8 +37,6 @@ class AppointmentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /appointments/1
-  # PATCH/PUT /appointments/1.json
   def update
     respond_to do |format|
       if @appointment.update(appointment_params)
@@ -59,8 +49,6 @@ class AppointmentsController < ApplicationController
     end
   end
 
-  # DELETE /appointments/1
-  # DELETE /appointments/1.json
   def destroy
     @appointment.destroy
     respond_to do |format|
@@ -83,7 +71,6 @@ class AppointmentsController < ApplicationController
   #  	}
   #	end
 
-#  binding.pry
   end
 
 
@@ -93,7 +80,6 @@ class AppointmentsController < ApplicationController
     end
 
     def appointment_params
-	# binding.pry
       params.require(:appointment).permit(:description, :title, :user_id, :event_id, :start, :end, :appointment_id)
     end
 
