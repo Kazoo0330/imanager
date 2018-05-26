@@ -5,7 +5,7 @@ class StudentGroupsController < ApplicationController
     @student_groups = StudentGroup.all
   end
 
-  GET /student_groups/1.json
+#  GET /student_groups/1.json
   def show
     @student_groups = StudentGroup.find(params[:id])
   end
