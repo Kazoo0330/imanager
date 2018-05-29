@@ -22,13 +22,13 @@ $('#calendar').fullCalendar({
   center: 'title',
   right: 'month,agendaWeek,agendaDay,listMonth'
   },
-	durationEditable: Boolean, default: true,
+  durationEditable: Boolean, default: true,
   weekNumbers: true,
-	eventLimit: true, // allow "more" link when too many events
+  eventLimit: true, // allow "more" link when too many events
   businessHours: {
     dow: [0, 1, 2, 3, 5, 6],
-	  start: '13:30', //コアタイム開始時間
-	  end: '19:00',  //コアタイム終了時間
+	start: '13:30', //コアタイム開始時間
+	end: '19:00',  //コアタイム終了時間
   },
   editable: true,
   selectable: true,
@@ -40,23 +40,23 @@ $('#calendar').fullCalendar({
 	if (title) {
 	  eventData = {
 	    title: title,
-			start: start,
-			end: end,
-	  };
+		start: start,
+		end: end,
+	   };
 		// debugger
 		 $.ajax({
            type: "POST",
            url: "/events",
            dataType: "script",
-		   		 data: {
+		   data: {
 			authenticity_token: CSRF_TOKEN,
 			event: {
-				title: title,
-				start: start.format("YYYY-MM-DD HH:mm:ssZ"),
-				end: end.format("YYYY-MM-DD HH:mm:ssZ"),
-//				appointment_id: 2
+			title: title,
+			start: start.format("YYYY-MM-DD HH:mm:ssZ"),
+			end: end.format("YYYY-MM-DD HH:mm:ssZ"),
+//		    appointment_id: 2
 			}
-		  },
+		   },
 		 });
 	  $('#calendar').fullCalendar('renderEvent', eventData, true);
 	}

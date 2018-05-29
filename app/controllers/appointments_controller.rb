@@ -85,7 +85,7 @@ class AppointmentsController < ApplicationController
 
   def admin_exclusive
     unless current_user.admin
-	  redirect_to appointments_path
+     redirect_to appointments_path
 	end
   end
 
