@@ -1,26 +1,25 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
-#  before_action :admin_exclusive, only: [:new, :create, :update, :edit, :destroy]
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
-
+# before_action :admin_exclusive, only: [:new, :create, :update, :edit, :destroy]
+  before_action :set_event, only: %i(show edit update destroy)
 
   def index
     @events = Event.all
   end
 
   def show
-  end
+ end
 
   def new
     if params[:back]
       @event = Event.new(event_params)
 	else
-	  @event = Event.new
-	end
+     @event = Event.new
+   end
   end
 
   def edit
-  end
+ end
 
   def create
     @event = Event.new(event_params)
@@ -80,7 +79,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :user_id, :start, :end, :appointment_id)
+    params.requir(:event).permit(:title, :user_id, :start, :end, :appointment_id)
   end
 
 #	def admin_exclusive
