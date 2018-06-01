@@ -8,7 +8,7 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-#    @appointments = Appointment.all 
+#    @appointments = Appointment.all
   end
 
   def new
