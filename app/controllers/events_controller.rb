@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   end
 
   def show
- end
+  end
 
   def new
     if params[:back]
@@ -79,7 +79,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.requir(:event).permit(:title, :user_id, :start, :end, :appointment_id)
+    params.require(:event).permit(:title, :user_id, :start, :end, :appointment_id)
   end
 
 #	def admin_exclusive

@@ -1,7 +1,7 @@
 class AppointmentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :admin_exclusive, only: [:new, :create, :update, :edit, :destroy]
-  before_action :set_appointment, only: [:show, :edit, :update, :destroy]
+  before_action :admin_exclusive, only: %i[new create update edit destroy]
+  before_action :set_appointment, only: %i[show edit update destroy]
 
   def index
     @appointments = Appointment.all
@@ -80,7 +80,7 @@ class AppointmentsController < ApplicationController
     end
 
     def appointment_params
-      params.require(:appointment).permit(:description, :title, :user_id, :event_id, :start, :end, :appointment_id)
+      params.require(:appointment).permit %i[description title user_id event_id start end appointment_id]
     end
 
   def admin_exclusive
