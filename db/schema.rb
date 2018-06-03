@@ -1,5 +1,4 @@
 ActiveRecord::Schema.define(version: 20180521044343) do
-
   enable_extension "plpgsql"
 
   create_table "appointments", force: :cascade do |t|
