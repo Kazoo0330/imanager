@@ -79,12 +79,8 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :user_id, :start, :end, :appointment_id)
+    params.require(:event).permit %i[
+      title user_id start end appointment_id
+    ]
   end
-
-#	def admin_exclusive
-#	  unless current_user.admin
-#        redirect_to events_path
-#	  end
-#	end
 end

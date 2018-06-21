@@ -75,18 +75,19 @@ class AppointmentsController < ApplicationController
 
 
   private
-    def set_appointment
-      @appointment = Appointment.find(params[:id])
-    end
+  def set_appointment
+    @appointment = Appointment.find(params[:id])
+  end
 
-    def appointment_params
-      params.require(:appointment).permit %i[description title user_id event_id start end appointment_id]
-    end
+  def appointment_params
+    params.require(:appointment).permit %i[
+      description title user_id event_id start end appointment_id
+    ]
+  end
 
   def admin_exclusive
     unless current_user.admin
      redirect_to appointments_path
 	end
   end
-
 end
